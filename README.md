@@ -2,5 +2,5 @@ On this Github, there are two supplementary files that complement the content di
 
 The first document is a Rmarkdown file, which covers the theoretical concepts discussed in the manuscript in more depth. R code to replicate the figure and data used in the paper are provided and can be expanded by clicking on "Code". 
 
-The second document is a Shiny application, which can be used for teachin purposes. 
+The second document is a Shiny application, which can be used for teaching purposes. 
 
