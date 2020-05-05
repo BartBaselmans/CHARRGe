@@ -17,5 +17,11 @@ library(knitr)
 
 The Shiny-app can be used for teaching purposes and consists of three pages
 **Risk for relatives**
-You can change the life time risk of disease (*K*), heritability (*h^2*) 
+You can change the life time risk of disease (*K*), heritability, and the genetic relationship between relatives (IBD)
+
+**Probability**
+The probability to be diagnosed of a complex disorder is very non-linear and depends on heritability and lifetime risk of disease. You can vary those parameters to see their influences on probability
+
+**heritability and genetic correlation**
+By changing the genetic parameters lifetime risk of disease X and Y, the lifetime risk of disease (x or y) given relatives with disease (x or y) as well as the lifetime risk of disease x given relatives with disease y you can derive the heritability (x and y), co-heritability as well as the genetic correlation.
 
