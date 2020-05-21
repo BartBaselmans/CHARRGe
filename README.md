@@ -1,6 +1,6 @@
 # Risk in relatives, heritability, SNP-based heritability and genetic correlations in psychiatric disorders: a review
 
-On this Github, there are two supplementary files that complement the content discussed in Risk in relatives, heritability, SNP-based heritability and genetic correlations in psychiatric disorders: a review, published in Biological Psychiatry.
+On this Github, there are two supplementary files that complement the content discussed in **Risk in relatives, heritability, SNP-based heritability and genetic correlations in psychiatric disorders: a review**, published in Biological Psychiatry.
 
 # R-Markdown
 
