@@ -26,7 +26,7 @@ library(viridis)
  ```  
 
 
-The Shiny-app can be used for teaching purposes and consists of two pages.
+The Shiny-app can be used for teaching purposes and consists of two pages. \
 **Risk for relatives**:
 You can change the life time risk of disease (*K*), heritability, and the genetic relationship between relatives (IBD) and estimate the risk in relatives having one or two affected parents.
 
