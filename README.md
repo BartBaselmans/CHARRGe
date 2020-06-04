@@ -27,9 +27,9 @@ library(viridis)
 
 
 The Shiny-app can be used for teaching purposes and consists of two pages. \
-**Risk for relatives**:
+**Risk for relatives**: \
 You can change the life time risk of disease (*K*), heritability, and the genetic relationship between relatives (IBD) and estimate the risk in relatives having one or two affected parents.
 
-**heritability, genetic correlation and cross-disorder risk ratio**:
+**heritability, genetic correlation and cross-disorder risk ratio**: \
 By changing the genetic parameters lifetime risk of disease X and Y, the lifetime risk of disease (x or y) given relatives with disease (x or y) as well as the lifetime risk of disease x given relatives with disease y, you can derive the heritability (x and y), co-heritability as well as the genetic correlation between the two disorders.
 
