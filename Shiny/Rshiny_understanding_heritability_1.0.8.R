@@ -29,7 +29,7 @@ ui <- navbarPage("CHARRGe",
                                                   content = "Heritability"),
                                      sliderInput("h2_K1", 
                                                   HTML("Lifetime risk of disease with diagnosed relative (K<sub>1</sub>):"),
-                                                  min = 0, max = 0.35, value = 0.2, step = 0.01),
+                                                  min = 0, max = 0.5, value = 0.2, step = 0.01),
                                      radioButtons("h2_a",
                                                   label = HTML("Coefficient of relationship (a<sub>R</sub>)"),
                                                   choices = c("0.5 (first-degree)",
@@ -41,10 +41,12 @@ ui <- navbarPage("CHARRGe",
                             ),
 # output_h2 ---------------------------------------------------------------
 fluidRow(
-                             column(8, offset=0,
-                                     textOutput("text1"),
-                                     br(),
-                                     textOutput("text2"),
+                            column(8, offset=0,
+                            htmlOutput("CHARRGe"),
+                            br(),
+                            textOutput("text1"),
+                            br(),
+                            textOutput("text2"),
                               ),
                              column(4, offset = 0,
                                      uiOutput('Table1')
@@ -101,6 +103,8 @@ fluidRow(
 # Output_risk_in_relatives ------------------------------------------------
 fluidRow(
                             column(8, offset=0,
+                                    htmlOutput("CHARRGe1"),
+                                    br(),
                                     textOutput("text3"),
                                     br(),
                                     textOutput("text4")
@@ -147,7 +151,7 @@ fluidRow(
                                         HTML("Lifetime risk of disease x (K<sub>x</sub>):"),
                                         min = 0, max = 0.2, value = 0.01, step = 0.01),
                             sliderInput("CDRR_Ky", 
-                                        HTML("Lifteime risk of disease y (K<sub>y</sub>):"),
+                                        HTML("Lifetime risk of disease y (K<sub>y</sub>):"),
                                         min = 0, max = 0.2, value = 0.15, step = 0.01),
                             sliderInput("CDRR_rg",
                                         HTML("Genetic correlation (r<sub>g</sub>):"),
@@ -164,6 +168,8 @@ fluidRow(
 # Output_CDRR -------------------------------------------------------------
 fluidRow(
                             column(8, offset=0,
+                                   htmlOutput("CHARRGe2"),
+                                   br(),
                                    textOutput("text5"),
                                    br(),
                                    textOutput("text6"),
@@ -220,6 +226,11 @@ Biological Psychiatry,2020 <br>
 # Define server logic required to draw a histogram
 server <- function(input, output, session) {
   
+
+#Charge
+  output$CHARRGe <- renderUI({ 
+  HTML("<b> CHARRGe: Calculation Heritability And Relative Risk and Genetic correlation <b>" )
+    })
 #Text1
  output$text1 <- renderText({ 
      "The CHARRGe calculator can be used to get familiar with the Liability Threshold Model. It covers different
@@ -287,7 +298,10 @@ server <- function(input, output, session) {
           }, height = 300, width = 900)  
   
 # Server_risk_relatives ---------------------------------------------------
-#Text3
+  output$CHARRGe1 <- renderUI({ 
+    HTML("<b> CHARRGe: Calculation Heritability And Relative Risk and Genetic correlation <b>" )
+  })
+  #Text3
   output$text3 <- renderText({ 
     "This section calculates the expected risk in relatives, when lifetime risk and heritability are known, and assuming the liability threshold model of common polygenic disease. You can choose the 
     lifetime risk of the general population (N = 100 people icons) for two disorders (Kx and Ky) as well as their corresponding heritability estimates (h2x and h2y)
@@ -370,14 +384,16 @@ server <- function(input, output, session) {
     }, height = 800, width = 900)
 
 # Server_Cross_Disorder_risk_relatives ---------------------------------------------------      
-
+  output$CHARRGe2 <- renderUI({ 
+    HTML("<b> CHARRGe: Calculation Heritability And Relative Risk and Genetic correlation <b>" )
+  })
   output$text5 <- renderText({ 
     "Just as epidemiological studies can investigate the increased risk of disorder x in relatives of those with disorder x, 
     they can also collect the data to estimate the increased risk of disorder y in relatives of those with disorder x, 
     and vice versa. Here, the top row (figure) is a visual representation of the input variables, such as the life time prevalence of 
     phenotype x and y as well as their heritability estimates. Additionally, the genetic correlation between x and y are provided. 
-    The second row shows the visualization of the cross disorder risk ratio of disorder x when a relative is diagnosed with y,
-    as well as the other way around."
+    The second row shows the visualization of the cross disorder risk ratio (RRxy) of disorder x when a relative is diagnosed with y,
+    as well as the other way around (RRyx)."
     })
   
   output$text6 <- renderText({ 

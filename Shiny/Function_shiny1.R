@@ -69,7 +69,7 @@ mk_plot1 <- function(K,h2, xlab=NA, ylab=NA){
   x <- seq(Txp-6,Txp+3,length=1000)*sd + mean
   hx <- dnorm(x,mean,sd)
   K <- round(K,2)
-  K_prevalence <- c(as.expression(bquote(italic(K)~'='~.(K))))
+  K_prevalence <- c(as.expression(bquote(italic(K)[x]~'='~.(K))))
   h2=h2
   p2 <- plot(x, hx, type="n", xlab="", ylab="",
              main=c(as.expression((bquote(bold("Phenotype x:"~h^2~"="~ .(h2)))))), cex.main =2, axes=FALSE)
@@ -161,7 +161,7 @@ mk_plot1.1 <- function(K, h2){
   x <- seq(Txp-6,Txp+3,length=1000)*sd + mean
   hx <- dnorm(x,mean,sd)
   K <- round(K,2)
-  K_prevalence <- c(as.expression(bquote(italic(K)~'='~.(K))))
+  K_prevalence <- c(as.expression(bquote(italic(K)[y]~'='~.(K))))
   h2=h2
   p2 <- plot(x, hx, type="n", xlab="", ylab="",
              main=c(as.expression((bquote(bold("Phenotype y:"~h^2~"="~ .(h2)))))), cex.main =2, axes=FALSE)
@@ -386,9 +386,9 @@ mk_plot3 <- function(K, Kr){
                    stringsAsFactors = FALSE)    
   
   
-  rr <- round(Kr/K,0)
+  rr <- round(Kr/K,1)
   #rr <- round(1/2.1,1)
-  RR <- c(as.expression(bquote(italic(RR)[1][par]~'='~.(rr))))
+  RR <- c(as.expression(bquote(italic(RR)[x][y]~'='~.(rr))))
   
   plot(col ~ row, DF, col = DF$value, asp = 1, cex=5,
        xlim = c(0, nr), ylim = c(0, nc),
@@ -454,9 +454,9 @@ mk_plot3.1 <- function(K, Kr){
                    stringsAsFactors = FALSE)    
   
   
-  rr <- round(Kr/K,0)
+  rr <- round(Kr/K,1)
   #rr <- round(1/2.1,1)
-  RR <- c(as.expression(bquote(italic(RR)[1][par]~'='~.(rr))))
+  RR <- c(as.expression(bquote(italic(RR)[y][x]~'='~.(rr))))
   
   plot(col ~ row, DF, col = DF$value, asp = 1, cex=5,
        xlim = c(0, nr), ylim = c(0, nc),
@@ -696,8 +696,8 @@ mk_plot10 <- function(K, xlab=NA, ylab=NA){
   
   x <- seq(Txp-6,Txp+3,length=1000)*sd + mean
   hx <- dnorm(x,mean,sd)
-  K <- round(K,2)
-  K_prevalence <- c(as.expression(bquote(italic(K)~'='~.(K))))
+  K <- round(K,3)
+  K_prevalence <- c(as.expression(bquote(italic(K)[xy]~'='~.(K))))
   #h2=h2
   p2 <- plot(x, hx, type="n", xlab="", ylab="",
              main="Liability x given \n relative diagnosed with y", cex.main =2, axes=FALSE)
@@ -726,8 +726,8 @@ mk_plot11 <- function(K, xlab=NA, ylab=NA){
   
   x <- seq(Txp-6,Txp+3,length=1000)*sd + mean
   hx <- dnorm(x,mean,sd)
-  K <- round(K,2)
-  K_prevalence <- c(as.expression(bquote(italic(K)~'='~.(K))))
+  K <- round(K,3)
+  K_prevalence <- c(as.expression(bquote(italic(K)[yx]~'='~.(K))))
   #h2=h2
   p2 <- plot(x, hx, type="n", xlab="", ylab="",
              main="Liability y given \n relative diagnosed with x", cex.main =2, axes=FALSE)
@@ -823,7 +823,7 @@ mk_plot14 <- function(K, xlab=NA, ylab=NA){
   
   x <- seq(Txp-6,Txp+3,length=1000)*sd + mean
   hx <- dnorm(x,mean,sd)
-  K <- round(K,2)
+  K <- round(K,3)
   #K_prevalence <- c(as.expression(bquote(italic(K)~'='~.(K))))
   K_prevalence <- c(as.expression(bquote(italic(K)[1]~'='~.(K))))
   
